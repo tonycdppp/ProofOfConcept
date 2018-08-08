@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
-using CrmRestApiIntegration.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CrmRestApiIntegration.Controllers
+namespace ProofOfConcept.Controllers
 {
     public class HomeController : Controller
     {
