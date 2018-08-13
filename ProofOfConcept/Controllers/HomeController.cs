@@ -7,7 +7,8 @@ namespace ProofOfConcept.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
+
     }
 }

@@ -1,12 +1,96 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Proof of Concept - Main";
+    Layout = "_Layout";
+}
+@section Scripts
+    {
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#selectable").selectable();
+        });
+
+
+        function redirect(url) {
+            window.location.replace(url);
+        }
+
+
+    </script>
+}
+@section Style
+    {
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Selectable - Display as grid</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <style>
+        ol#selectable {
+            max-width: 1540px;
+        }
+
+        #feedback {
+            font-size: 1.4em;
+        }
+
+        #selectable .ui-selecting {
+            background: #FECA40;
+        }
+
+        #selectable .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+        }
+
+            #selectable li {
+                margin: 3px;
+                padding: 50px;
+                float: left;
+                width: 180px;
+                height: 100px;
+                font-size: 2em;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+                #selectable li:hover {
+                    background: #FEeA40;
+                }
+
+        .main-table {
+        }
+
+        .ui-state-default {
+        }
+    </style>
 }
 
-<div class="main">
-    <h1>Fresh start</h1>
 
-    <div class="main-text">
-        Click me => <button> Hello </button>
-    </div>
-
+<h1>Proof of Concept</h1>
+<div class="main-table">
+    <ol id="selectable">
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" onmousedown="redirect('Authentication/Login')">CRM Web API</li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+        <li class="ui-state-default" data-url=""></li>
+    </ol>
 </div>

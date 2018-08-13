@@ -1,0 +1,17 @@
+﻿@model ProofOfConcept.Models.LoginCredentials
+
+@{
+    ViewBag.Title = "Proof of Concept - CRM Web API - Auth Demo";
+    Layout = "_Layout";
+}
+
+<h2>Test Logon</h2>
+
+<div id="main-login">
+    <form>
+        Username: @Html.TextBoxFor(x => x.Username)
+        <br/>
+        Password: @Html.PasswordFor(x => x.Password)
+    </form>
+</div>
+
