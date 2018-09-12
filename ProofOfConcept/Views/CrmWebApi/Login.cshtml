@@ -1,4 +1,5 @@
-﻿@model ProofOfConcept.CrmWebApiIntegration.Model.LoginCredentials
+﻿@using ProofOfConcept.CrmWebApiIntegration.Model
+@model ProofOfConcept.CrmWebApiIntegration.Model.LoginCredentials
 
 @{
     ViewBag.Title = "Proof of Concept - CRM Web API - Auth Demo";
@@ -8,10 +9,12 @@
 <h2>Test Logon</h2>
 
 <div id="main-login">
-    <form>
+    <form method="post" action="Authenticate">
         Username: @Html.TextBoxFor(x => x.Username)
         <br/>
         Password: @Html.PasswordFor(x => x.Password)
+        <br/>
+        <button type="submit">GO!</button>
     </form>
 </div>
 

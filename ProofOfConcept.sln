@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProofOfConcept", "ProofOfConcept\ProofOfConcept.csproj", "{FFAD8F30-A80A-49C2-B194-D8B7613E9F7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProofOfConcept", "ProofOfConcept\ProofOfConcept.csproj", "{FFAD8F30-A80A-49C2-B194-D8B7613E9F7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProofOfConcept.CrmWebApiIntegration", "ProofOfConcept.CrmWebApiIntegration\ProofOfConcept.CrmWebApiIntegration.csproj", "{63DD65F8-5156-4942-8077-1885C3D6FAB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProffOfConcept.Tests", "ProffOfConcept.Tests\ProffOfConcept.Tests.csproj", "{3614E7D9-B6FD-40D6-95D8-C9F7923A2DC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{FFAD8F30-A80A-49C2-B194-D8B7613E9F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFAD8F30-A80A-49C2-B194-D8B7613E9F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFAD8F30-A80A-49C2-B194-D8B7613E9F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63DD65F8-5156-4942-8077-1885C3D6FAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63DD65F8-5156-4942-8077-1885C3D6FAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63DD65F8-5156-4942-8077-1885C3D6FAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63DD65F8-5156-4942-8077-1885C3D6FAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3614E7D9-B6FD-40D6-95D8-C9F7923A2DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3614E7D9-B6FD-40D6-95D8-C9F7923A2DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3614E7D9-B6FD-40D6-95D8-C9F7923A2DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3614E7D9-B6FD-40D6-95D8-C9F7923A2DC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

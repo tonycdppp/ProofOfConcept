@@ -1,0 +1,16 @@
+﻿@using ProofOfConcept.CrmWebApiIntegration.Model
+@model IEnumerable<ProofOfConcept.CrmWebApiIntegration.Model.ConnectionEventModel>
+
+@{
+    ViewBag.Title = "Proof of Concept - List Connection Events from CRM Web API";
+    Layout = "_Layout";
+}
+<h2>Proof of Concept - List Connection Events from CRM Web API</h2>
+
+@foreach (var connectionEvent in Model)
+{
+    <div>
+        <p>Id: @connectionEvent.wnsl_eventid</p>
+        <p>Name: @connectionEvent.wnsl_name</p>
+    </div>
+}
