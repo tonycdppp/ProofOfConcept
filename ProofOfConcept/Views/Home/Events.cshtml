@@ -1,16 +1,22 @@
 ﻿@using ProofOfConcept.CrmWebApiIntegration.Model
-@model IEnumerable<ProofOfConcept.CrmWebApiIntegration.Model.ConnectionEventModel>
+@model IEnumerable<ConnectionEventModel>
 
 @{
     ViewBag.Title = "Proof of Concept - List Connection Events from CRM Web API";
     Layout = "_Layout";
+    var opaqueness = 0;
 }
 <h2>Proof of Concept - List Connection Events from CRM Web API</h2>
 
 @foreach (var connectionEvent in Model)
 {
-    <div>
+    opaqueness += 20;
+    var rgb = String.Format("rgb({0},{0},{0})", opaqueness.ToString());
+
+    <div style="color:@rgb ">
         <p>Id: @connectionEvent.wnsl_eventid</p>
         <p>Name: @connectionEvent.wnsl_name</p>
+        <br/>
+        <br/>
     </div>
 }

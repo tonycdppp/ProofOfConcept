@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ProofOfConcept.CrmWebApiIntegration.RestApiAccess;
-
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using ProofOfConcept.CrmWebApiIntegration;
 
 namespace ProofOfConcept.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProvider _dataProvider;
+        private readonly IConnectionEventService _eventService;
 
-        public HomeController(IProvider dataProvider)
+        public HomeController(IConnectionEventService eventService)
         {
-            _dataProvider = dataProvider;
+            _eventService = eventService;
         }
 
         public IActionResult Index()
@@ -20,9 +20,8 @@ namespace ProofOfConcept.Controllers
 
         public IActionResult Events()
         {
-            _dataProvider.HttpGet()
-
+            var allEvents = _eventService.Retrieve().OrderByDescending(x => x.createdon).Take(10);
+            return View("Events", allEvents);
         }
-
     }
 }

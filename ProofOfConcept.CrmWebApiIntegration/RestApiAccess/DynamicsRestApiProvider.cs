@@ -11,8 +11,9 @@ namespace ProofOfConcept.CrmWebApiIntegration.RestApiAccess
     public class DynamicsRestApiProvider : IProvider
     {
         //private static string _serviceUrlCrmOnline = "https://mydomain.crm.dynamics.com/";  // CRM Online
-        //private static string _serviceUrlIfd = "https://cwcrm.thefa.com/ClubWembley";       // CRM Internet-Facing Deployment (IFD)
-        private static string _serviceUrl = "https://cwcrm.thefa.com/ClubWembley";          // CRM on-premises
+        //private static string _serviceUrlIfd = "http://cwdev001:5555/ClubWembley"       // CRM Internet-Facing Deployment (IFD)
+        private static string _serviceUrl = "http://cwdev001:5555/ClubWembley/";          // CRM on-premises
+
 
         //TODO: For an on-premises deployment, set your organization credentials here. (If online or IFD, you can you can disregard or set to null.)
         private const string UserAccount = "Administrator"; //CRM user account
@@ -28,29 +29,32 @@ namespace ProofOfConcept.CrmWebApiIntegration.RestApiAccess
 
         public DynamicsRestApiProvider()
         {
-            if (_serviceUrl.StartsWith("https://"))
-            {
-                MessageHandler = new OAuthMessageHandler(_serviceUrl, ClientId, RedirectUrl, new HttpClientHandler());
-            }
-            else
-            {
-                var credentials = new NetworkCredential(UserAccount, Password, Domain);
-                MessageHandler = new HttpClientHandler { Credentials = credentials };
-            }
         }
 
         public async Task<HttpResponseMessage> HttpGetAsync(string call)
         {
+
+            //            if (_serviceUrl.StartsWith("https://"))
+            //            {
+            //                _httpClientHandler = new HttpClientHandler();
+            //                MessageHandler = new OAuthMessageHandler(_serviceUrl, ClientId, RedirectUrl, _httpClientHandler);
+            //            }
+            //            else
+            //            {
+            var credentials = new NetworkCredential(UserAccount, Password, Domain);
+            MessageHandler = new HttpClientHandler { Credentials = credentials };
+            //            }
+
+
             using (var client = new HttpClient(MessageHandler))
             {
                 client.BaseAddress = new Uri(_serviceUrl);
                 client.Timeout = new TimeSpan(0, 2, 0);  //2 minutes
 
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", Token.Token, ChrysalisPassword))));
+//                client.DefaultRequestHeaders.Accept.Clear();
+//                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var response = await client.GetAsync(call, HttpCompletionOption.ResponseHeadersRead);
+                var response = await client.GetAsync(call);
 
                 return response;
             }
@@ -62,10 +66,8 @@ namespace ProofOfConcept.CrmWebApiIntegration.RestApiAccess
             {
                 client.BaseAddress = new Uri(_serviceUrl);
                 client.Timeout = new TimeSpan(0, 2, 0);  //2 minutes
-
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", Token.Token, ChrysalisPassword))));
 
                 var jsonString = JsonConvert.SerializeObject(model);
                 var response = await client.PostAsync(call, new StringContent(jsonString, Encoding.UTF8, "application/json"));

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ProofOfConcept.CrmWebApiIntegration.Model;
 
 namespace ProofOfConcept.CrmWebApiIntegration
@@ -6,6 +7,6 @@ namespace ProofOfConcept.CrmWebApiIntegration
     public interface IConnectionEventService
     {
         ConnectionEventModel Retrieve(Guid id);
-        ConnectionEventModel Retrieve();
+        IEnumerable<ConnectionEventModel> Retrieve();
     }
 }

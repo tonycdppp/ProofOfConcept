@@ -1,6 +1,4 @@
-﻿using ProofOfConcept.CrmWebApiIntegration.DataAccess;
-
-namespace ProofOfConcept.CrmWebApiIntegration.Model
+﻿namespace ProofOfConcept.CrmWebApiIntegration.Model
 {
     public class LoginCredentials
     {
