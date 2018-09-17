@@ -42,7 +42,7 @@ namespace ProofOfConcept
 
 //        // ConfigureContainer is where you can register things directly
 //        // with Autofac. This runs after ConfigureServices so the things
-//        // here will override registrations made in ConfigureServices.
+//        // here will override registrations made in ConfigureServices.     
 //        // Don't build the container; that gets done for you. If you
 //        // need a reference to the container, you need to use the
 //        // "Without ConfigureContainer" mechanism shown later.
