@@ -62,15 +62,20 @@ namespace ProofOfConcept.CrmWebApiIntegration.RestApiAccess
 
         public async Task<HttpResponseMessage> HttpPostAsync(string call, object model)
         {
+            var credentials = new NetworkCredential(UserAccount, Password, Domain);
+            MessageHandler = new HttpClientHandler { Credentials = credentials };
+
             using (var client = new HttpClient(MessageHandler))
             {
                 client.BaseAddress = new Uri(_serviceUrl);
                 client.Timeout = new TimeSpan(0, 2, 0);  //2 minutes
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+//                client.DefaultRequestHeaders.Accept.Clear();
+//                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+//                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 var jsonString = JsonConvert.SerializeObject(model);
-                var response = await client.PostAsync(call, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+                var stringContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(call, stringContent);
 
                 return response;
             }

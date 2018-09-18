@@ -8,5 +8,6 @@ namespace ProofOfConcept.CrmWebApiIntegration
     {
         ConnectionEventModel Retrieve(Guid id);
         IEnumerable<ConnectionEventModel> Retrieve();
+        ConnectionEventModel Insert(ConnectionEventModel model);
     }
 }

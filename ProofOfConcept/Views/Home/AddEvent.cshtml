@@ -1,0 +1,26 @@
+﻿@using ProofOfConcept.Controllers
+@using ProofOfConcept.CrmWebApiIntegration.Model
+@model ConnectionEventModel
+@{
+    ViewBag.Title = "Proof of Concept - Add connection event to CRM via Web API";
+    Layout = "_Layout";
+    var opaqueness = 0;
+}
+<style>
+    .events-list {
+        font-family: arial;
+        font-size: 15px;
+        text-align: left;
+        margin-left: 30%;
+        font-variant: normal;
+    }
+</style>
+<h2>Proof of Concept - List Connection Events from CRM Web API</h2>
+
+@using (Html.BeginForm("AddEvent", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(x => x.wnsl_name)
+    <br />
+    <input type="submit" value="Submit" />
+
+}

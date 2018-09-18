@@ -15,4 +15,10 @@
     <ProjectReference Include="..\ProofOfConcept.CrmWebApiIntegration\ProofOfConcept.CrmWebApiIntegration.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Home\AddEvent.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

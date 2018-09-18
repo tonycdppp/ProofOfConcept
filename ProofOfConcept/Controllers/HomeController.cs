@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ProofOfConcept.CrmWebApiIntegration;
+using ProofOfConcept.CrmWebApiIntegration.Model;
 
 namespace ProofOfConcept.Controllers
 {
@@ -22,6 +23,18 @@ namespace ProofOfConcept.Controllers
         {
             var allEvents = _eventService.Retrieve().OrderByDescending(x => x.createdon).Take(10);
             return View("Events", allEvents);
+        }
+
+        public IActionResult AddEvent()
+        {
+            return View("AddEvent", new ConnectionEventModel());
+        }
+
+        [HttpPost]
+        public IActionResult AddEvent(ConnectionEventModel model)
+        {
+            var result = _eventService.Insert(model);
+            return this.RedirectToAction("Events", "Home");
         }
     }
 }
